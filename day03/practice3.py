@@ -37,26 +37,47 @@ print(nums)
 
 # 문제 5: 리스트 정렬과 포함 여부 score = [85, 95, 70, 100] 리스트를 내림차순(큰 숫자부터)으로 정렬하고, 사용자로부터 숫자를 입력받아 해당 숫자가 score 리스트 안에 있는지 in 연산자를 사용하여 True/False로 출력하시오.
 score = [85,95,70,100]
+score.sort(reverse=True)
+i = input('정수를 입력하세요 > ')
+if i in score :
+    print('True')
+else :
+    print('False')
 
 # 문제 6: 딕셔너리 기본 선언 및 호출 다음 정보를 담은 딕셔너리 movie를 선언하고, .get() 메서드를 사용하여 영화의 "감독"을 출력하시오.
 # 제목: 파묘
 # 감독: 장재현
 # 개봉: 2024
 movie_dict = {"제목":"파묘","감독":"장재현","개봉":2024}
-movie_dict.get("감독")
+print(movie_dict.get("감독"))
 
 
 # 문제 7: 딕셔너리 값 수정 및 삭제 위 6번에서 만든 movie 딕셔너리에 "장르": "미스터리"를 추가하고, "개봉" 키와 값을 삭제한 후 전체 딕셔너리를 출력하시오.
+movie_dict["장르"]="미스터리"
+del movie_dict["개봉"]
+print(movie_dict)
 
 # 문제 8: 반복문을 이용한 딕셔너리 출력 딕셔너리 fruit_stock = {"apple": 10, "banana": 5, "cherry": 15}가 있습니다. for 반복문을 사용하여 다음과 같은 형식으로 출력하시오.
 # 출력 형식: apple의 재고는 10개입니다. (모든 요소 반복)
-
+fruit_stock = {"apple": 10, "banana": 5, "cherry": 15}
+for key,value in fruit_stock.items():
+    print(f"{key}의 재고는 {value}개 입니다.")
+    
 # 문제 9: 리스트 내 딕셔너리 순회 아래와 같은 리스트가 있을 때, 반복문을 사용하여 각 학생의 이름과 점수를 출력하시오.
-# Python
-# students = [
-#     {"name": "윤동주", "score": 90},
-#     {"name": "백석", "score": 85}
-# ]
-# # 출력 예시: 윤동주 학생의 점수는 90점입니다.
+# 출력 예시: 윤동주 학생의 점수는 90점입니다.
+students = [
+    {"name": "윤동주", "score": 90},
+    {"name": "백석", "score": 85}
+]
 
-# 문제 10: 전개 연산자(*) 활용 list_x = [1, 2, 3]와 list_y = [4, 5]가 있습니다. 전개 연산자를 사용하여 두 리스트의 요소를 하나로 합친 1차원 리스트 [1, 2, 3, 4, 5]를 만들고 출력하시오.
+for student in students :
+    print(f"{student['name']} 학생의 점수는 {student['score']}점입니다.")
+
+
+# 문제 10: 전개 연산자(*) 활용 list_x = [1, 2, 3]와 list_y = [4, 5]가 있습니다.
+#  전개 연산자를 사용하여 두 리스트의 요소를 하나로 합친 1차원 리스트 [1, 2, 3, 4, 5]를 만들고 출력하시오.
+list_x = [1, 2, 3]
+list_y = [4, 5]
+
+list = [*list_x, *list_y]
+print(list)
