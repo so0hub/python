@@ -39,7 +39,7 @@ print(nums)
 score = [85,95,70,100]
 score.sort(reverse=True)
 i = input('정수를 입력하세요 > ')
-if i in score :
+if int(i) in score :
     print('True')
 else :
     print('False')
