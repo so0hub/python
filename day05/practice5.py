@@ -14,7 +14,7 @@ is_adult(20)
 # 문제 2: 인사말 출력 함수 (say_hello)
 # 이름(name)과 인사말(message) 두 개의 매개변수를 받는 함수를 작성하시오. 이때 message는 기본 매개변수로 설정하여 값이 입력되지 않으면 "안녕하세요"가 출력되도록 하시오.
 # 호출 예시: say_hello("홍길동") -> 결과: 홍길동님, 안녕하세요.
-def say_hello(name,message="님, 안녕하세요"):
+def say_hello(name,message="안녕하세요"):
      print(f"{name}님, {message}")
 say_hello("홍길동")
 say_hello("박소영","하이")
@@ -40,12 +40,16 @@ print(price)
 # 문제 5: 가변 인자 합계 구하기 (sum_all)
 # 가변 매개변수(*args) 를 사용하여 전달받는 숫자의 개수에 상관없이 모든 숫자의 합계를 반환하는 함수를 작성하시오.
 def sum_all(*args):
-     return 
+     return sum(args)
+print(sum_all(1,2,3,4,5,6))
 
 # 문제 6: 가장 긴 단어 찾기 (find_longest)
 # 여러 개의 단어를 전개 매개변수로 입력받아 그중 가장 길이가 긴 단어를 반환하는 함수를 작성하시오.
 # 호출 예시: find_longest("apple", "strawberry", "kiwi") -> 결과: strawberry
-
+def find_Longest(*args):
+     return max(args,key=len)
+result = find_Longest("apple", "strawberry", "kiwi")
+print(result)
 # 문제 7: 최고 점수 학생 찾기 (get_top_student)
 # 학생 정보(이름, 점수)가 담긴 딕셔너리들이 포함된 리스트를 매개변수로 받아 가장 높은 점수를 받은 학생의 이름을 반환하는 함수를 작성하시오.
 # 데이터: [{'name': 'A', 'score': 80}, {'name': 'B', 'score': 95}]
