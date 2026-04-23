@@ -85,8 +85,9 @@ for index,car in enumerate(car_numbers):
     for index,usage in enumerate(usage_minutes):
         yogum = 1000
         if usage > 30 :
-            yogum += (usage / 10) * 500
+            yogum += ((usage-30) // 10) * 500           # 헐 (usage//10)*500 에서 ((usage-30)//10)*500 으로 바꾸니까 됨
         print(f"{car} : {usage}분 주차, 최종 요금:{yogum}")
+
 # 문제 10: 간단한 ATM 기기 구현 while True 무한 루프를 사용하여 간단한 ATM 기능을 구현하시오.
 # 요구 조건:
 # 사용자에게 "1:입금 | 2:출금 | 3:잔고 | 4:종료" 메뉴를 보여주고 입력을 받습니다.
