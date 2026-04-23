@@ -96,3 +96,23 @@ for index,car in enumerate(car_numbers):
 # 3번(잔고): 현재 잔고를 출력합니다.
 # 4번(종료): "프로그램을 종료합니다." 메시지를 출력하고 break로 루프를 탈출합니다.
 # (초기 잔고는 0으로 시작합니다.)
+
+money = 0
+while True :
+    print("1:입금 | 2:출금 | 3:잔고 | 4:종료")
+    a = input("해당하는 서비스의 번호를 입력하세요. (ex: 1) > ")
+    if a == "1" :
+        a1 = int(input("입금할 금액의 숫자만 입력하세요 > "))
+        money += a1
+        print(f"{a1}원이 입금되었습니다.")
+    if a == "2" :
+        a2 = int(input("출금할 금액의 숫자만 입력하세요. > "))
+        money -= a2
+        print(f"{a2}원이 출금되었습니다.")
+    if a == "3" :
+        print(f"현재 잔고는 {money} 원 입니다.")
+    if a == "4" :
+        print("프로그램을 종료합니다.")
+        break
+
+
