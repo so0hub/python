@@ -91,3 +91,5 @@ def calculate_payment(price,count,discount=0.1):
      final_price = (price * count * (1-discount))
      return int(final_price)
 print(calculate_payment(1000,1,))
+
+
