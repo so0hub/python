@@ -50,6 +50,7 @@ def find_Longest(*args):
      return max(args,key=len)
 result = find_Longest("apple", "strawberry", "kiwi")
 print(result)
+
 # 문제 7: 최고 점수 학생 찾기 (get_top_student)
 # 학생 정보(이름, 점수)가 담긴 딕셔너리들이 포함된 리스트를 매개변수로 받아 가장 높은 점수를 받은 학생의 이름을 반환하는 함수를 작성하시오.
 # 데이터: [{'name': 'A', 'score': 80}, {'name': 'B', 'score': 95}]
