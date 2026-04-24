@@ -18,3 +18,79 @@
 #       - 지역명 검색: '시군구' 열에서 사용자가 입력한 지역명(예: "만안구", "평촌동")이 포함된 모든 거래 내역 출력
 #       - 금액 범위 검색: 사용자가 입력한 '최소 금액'과 '최대 금액' 사이의 거래 내역 필터링 출력
 #       - 전체 통계 조회: 전체 데이터의 평균 거래가 등 간단한 통계 정보 출력
+
+
+# CSV 파일 읽기 헐 
+with open('./day08/아파트(매매)_실거래가_20260424164421.csv','r') as file:
+    contents = file.read()
+print(contents)
+
+
+# 회원 정보 저장
+# 식별번호 생성하기
+import random
+def get_rand_num():
+    numbers = [0,1,2,3,4,5,6,7,8,9]
+
+    number = random.choice(numbers)
+    return number
+print(get_rand_num())
+
+
+# 아이디 생성하기
+import random
+def get_rand_id():
+    ids = "abcdefghizklmnopqrstuvwxyz0123456789"
+    while(True):
+        user_ID = "".join(random.sample(ids,8))
+        if(user_ID[0] not in '0123456789'): # 첫 번째 자리에는 숫자가 못 들어가도록
+            break
+    return user_ID
+print(get_rand_id())
+
+
+# 비밀번호 생성하기
+import random
+def get_rand_pwd():
+    pwds = "abcdefghizklmnopqrstuvwxyz0123456789!~*@"
+    while(True):
+        user_PWD = "".join(random.sample(pwds,8))
+        if(user_PWD[0] not in '0123456789!~*@'):
+            break
+    return user_PWD
+print(get_rand_pwd())
+
+
+# 이름 생성하기
+import random
+def get_rand_name():
+    last_names = ["김","이","박","최","남궁","제갈","최"]
+    first_names = ["진","감","소","영","란","희","승","권","주","련"]
+
+    last_name = random.choice(last_names) # Last name 생성
+    first_name = "".join(random.sample(first_names,2)) # First name 생성
+    full_name = last_name + first_name # Full name 생성
+    
+    return full_name
+print(get_rand_name())
+
+
+# 사용자 정보 생성 및 저장
+
+# 파일 열고 닫기
+with open("users.txt","w",encoding='utf-8') as file:
+    columns_name = ['식별번호','아이디','비밀번호','이름']
+    file.write(",".join(columns_name) + "\n")
+
+    for _ in range(10): # 10명의 가짜 유저 생성
+        number = get_rand_num()
+        id = get_rand_id()
+        pwd = get_rand_pwd()
+        name = get_rand_name()
+
+
+    user_data = [str(number),id,pwd,name] # join을 위해 number을 str()로 변환해야 오류가 안 남 join은 글자들끼리만 합칠 수 있음
+    file.write(",".join(user_data)+"\n")
+print("users.txt 저장 완료")
+
+
