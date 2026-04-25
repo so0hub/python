@@ -21,7 +21,7 @@
 
 
 # CSV 파일 읽기 헐 
-with open('./day08/아파트(매매)_실거래가_20260424164421.csv','r') as file:
+with open('./python/day08/아파트(매매)_실거래가_20260424164421.csv', 'r') as file:
     contents = file.read()
 print(contents)
 
@@ -92,8 +92,6 @@ with open("users.txt","w",encoding='utf-8') as file:
         user_data = [str(number),id,pwd,name] # join을 위해 number을 str()로 변환해야 오류가 안 남 join은 글자들끼리만 합칠 수 있음
         file.write(",".join(user_data)+"\n")
 print("users.txt 저장 완료")
-
-
 
 
 # 2. 사용자 기능 (로그인 후 이용 가능)
