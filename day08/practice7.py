@@ -76,21 +76,23 @@ print(get_rand_name())
 
 
 # 사용자 정보 생성 및 저장
+# 10명의 랜덤 유저 정보를 생성해 리스트에 담기
+user_list = []
 
-# 파일 열고 닫기
+
+for i in range(10): # 10명의 가짜 유저 생성
+    user_info = {
+        "number" : get_rand_num() ,
+        "id" : get_rand_id() ,
+        "pwd" : get_rand_pwd() ,
+        "name" : get_rand_name()
+    }
+    user_list.append(user_info)
+
+# 파일 쓰기
 with open("users.txt","w",encoding='utf-8') as file:
-    columns_name = ['식별번호','아이디','비밀번호','이름']
-    file.write(",".join(columns_name) + "\n")
-
-    for _ in range(10): # 10명의 가짜 유저 생성
-        number = get_rand_num()
-        id = get_rand_id()
-        pwd = get_rand_pwd()
-        name = get_rand_name()
-
-
-        user_data = [str(number),id,pwd,name] # join을 위해 number을 str()로 변환해야 오류가 안 남 join은 글자들끼리만 합칠 수 있음
-        file.write(",".join(user_data)+"\n")
+    for user in user_list:
+        file.write(str(user)+"\n")  # user_list는 리스트 객체이므로 str()로 감싸서 문자열로 바꿔야 write가 가능하다고 함
 print("users.txt 저장 완료")
 
 
