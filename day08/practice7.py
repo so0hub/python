@@ -82,10 +82,10 @@ user_list = []
 
 for i in range(10): # 10명의 가짜 유저 생성
     user_info = {
-        "number" : get_rand_num() ,
-        "id" : get_rand_id() ,
-        "pwd" : get_rand_pwd() ,
-        "name" : get_rand_name()
+        "식별번호" : get_rand_num() ,
+        "아이디" : get_rand_id() ,
+        "비밀번호" : get_rand_pwd() ,
+        "이름" : get_rand_name()
     }
     user_list.append(user_info)
 
