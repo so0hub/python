@@ -96,9 +96,49 @@ with open("users.txt","w",encoding='utf-8') as file:
 print("users.txt 저장 완료")
 
 
-# 2. 사용자 기능 (로그인 후 이용 가능)
-#     2-1) 공통 : 
-#       - 회원가입,
- 
+
+# ========================================================================
+# 파일에서 회원 정보 불러오기 함수
+
+import os # 내 컴퓨터의 파일이나 폴더를 확인하는 도구
+# 메모장(users.txt)에 저장된 글자들을 읽어서 파이썬 리스트로 만드는 함수
+def load_users():
+    # 만약 내 컴퓨터에 user.tx라는 파일이 존재하는지 확인하는 것임
+    if os.path.exists("users.txt"):
+        with open("users.txt","r",encoding='utf-8') as file: # 파일이 있으면 읽기모드 'r'로 파일을 연다.
+            lines = file.readlines() # 파일 안에 있는 모든 줄을 한꺼번에 읽어서 리스트 형태로 가져옴
+
+            loaded_list = [] # 읽어온 글자 데이터를 담을 빈 바구니(리스트)를 준비
+
+            for line in lines: # 읽어온 문장들을 한 줄씩 꺼내서 확인함
+                if line.strip():
+                    loaded_list.append(eval(line.strip())) # eval : "글자"로 된 딕셔너리모양을 진짜 딕셔너리 객체로 변신시켜줌
+                    # 예: "{'id': '1'}" (글자) -> {'id': '1'} (진짜 딕셔너리)
+            return loaded_list # 다 담은 바구니를 함수 밖으로 보내주기
+        
+    else:
+        print("회원 파일이 없어서 새로 생성합니다.")
+        return []   # 아무것도 없으니 일단 빈 바구니를 돌려줌
+user_list = load_users()    # 프로그램 실행하자마자 위에서 만든 함수를 실행해 회원정보를 가져와 변수에 담음
+
+
+
 #       - 로그인
-#       - 로그아웃
+# 사용자에게 로그인 정보 입력받기
+input_id = input("아이디를 입력해주세요.\n")
+input_pwd = input("비밀번호를 입력해주세요.\n")
+def login(id,pwd,data_list):
+    # 회원목록 바구니에서 한 명씩 정보 꺼내봄
+    for user in data_list:
+        if user["아이디"] == id and user["비밀번호"] == pwd: 
+            return user["이름"]
+    return None
+  
+result_name = login(input_id,input_pwd,user_list) # 로그인 함수를 실행하고 그 결과를 변수에 저장함
+
+if result_name:
+    print(f"{result_name}님 환영합니다!")
+else:
+    print("정보가 일치하지 않습니다.")
+
+
