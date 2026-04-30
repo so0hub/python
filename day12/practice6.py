@@ -65,7 +65,7 @@ print( result )
 # dtype: float64
 # 발생한 위치 : a , c   /  발생한 이유 : a,c는 짝이 없음
 
-# 문제 7: 다중 정렬 구현 (Values & Index)
+# 문제 7: 다중 정렬 구현 (Values & Index)                                                        **********************
 # data = pd.Series([20, 10, 20, 30], index=['d', 'c', 'a', 'b'])에 대하여
 # 데이터 값(Values)은 내림차순으로 정렬하고, 값이 같을 경우 인덱스(Index)를 
 # 오름차순으로 정렬한 최종 결과를 출력하시오.
@@ -102,7 +102,7 @@ weight = pd.Series([0.4, 0.3, 0.3], index=['math', 'eng', 'sci'])
 x = ( score * weight ).sum()
 print( x )
 
-# 문제 10: 필터링 및 인덱스 재설정 (Reset Index)
+# 문제 10: 필터링 및 인덱스 재설정 (Reset Index)                                                   **********************
 # data = pd.Series([10, 30, 20, 40], index=['a', 'b', 'c', 'd'])에서 
 data = pd.Series([10, 30, 20, 40], index=['a', 'b', 'c', 'd'])
 # 1. 값이 25보다 큰 데이터만 추출하여 새로운 Series를 만드시오.
