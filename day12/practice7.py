@@ -158,9 +158,14 @@ data = pd.DataFrame({
 'Color': ['red', 'yellow', 'red', 'orange']
 })
 
-x = data['Fruit'].value_counts()
+
+
+x = data['Fruit'].value_counts()        # 고윳값( 중복수 ) 별 빈도수
 print( x )
 
 
-data.columns = [ 'Item' , 'Style' ]
+data.columns = [ 'Item' , 'Style' ]     # data.columns 모든열 , data.indexs 모든행  # 전체 수정 가능    # 원본수정
 print( data )
+
+result = data.rename( columns={ 'Fruit' : 'Item' , 'Color' : 'Style' } )    # 원본수정 x 
+print( result )
