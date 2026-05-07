@@ -70,3 +70,5 @@ print( df['Embarked'][0] )  # C = Cerbourg , Q = Queenstown , S = Southampton
 sns.countplot(data=df, x = 'Embarked' , hue='Survived')  # 승선 항구 수
 plt.legend( title = '범례제목' , labels = ['사망' , '생존'])
 plt.show
+
+

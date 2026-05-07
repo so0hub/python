@@ -23,3 +23,4 @@ plt.show()
 plt.pie( df['환자 수'] , labels=df['상태'] , autopct='%.2f%%' , startangle=90 )
 plt.title('환자 상태 비율')
 plt.show()
+

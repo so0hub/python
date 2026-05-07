@@ -26,3 +26,5 @@ for i , category in enumerate( categories ) :   # enumerate(리스트) 반복순
     plt.scatter( sub['리스크'] , sub['수익률(%)'] , label = category )
 plt.legend()
 plt.show()
+
+
