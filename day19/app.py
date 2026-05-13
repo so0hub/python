@@ -1,5 +1,11 @@
 # 실행할 때 app을 켜기!!!
+# cd python/day19
+# python app.py
+#    ```
 
+from fastapi import FastAPI
+import uvicorn
+import controller
 
 
 # app.py : FastApi 실행하는 파일
@@ -10,17 +16,18 @@
 
 # [1] app.py
 # (1) import
-from fastapi import FastAPI
-import uvicorn
+# from fastapi import FastAPI
+# import uvicorn
 
 # (2) FastApi 객체
 app = FastAPI()
 
-# (3) FastApi 객체로 uvicorn 서버 실행
-if __name__ == "__main__" :
-    uvicorn.run( 'app:app' , host='127.0.0.1' , port=8001 , reload=True )
-
-# (4) 라우터 연결 : 다른 .py 에서 정의한 router 객체를 합치기
+# (3) 라우터 연결 : 다른 .py 에서 정의한 router 객체를 합치기
 # .include_router( 연결할 라우터 )
-import controller
+# import controller
 app.include_router( controller.router )
+
+# (4) FastApi 객체로 uvicorn 서버 실행
+if __name__ == "__main__" :
+    uvicorn.run( 'app:app' , host='127.0.0.1' , port=8002 , reload=True )
+
